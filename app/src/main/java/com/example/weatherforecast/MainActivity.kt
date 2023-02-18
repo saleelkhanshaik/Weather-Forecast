@@ -8,20 +8,21 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.example.weatherforecast.navigation.WeatherNavigation
+import com.example.weatherforecast.screens.home.HomeScreenViewModel
 import com.example.weatherforecast.ui.theme.WeatherForecastTheme
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+           // val mainViewModel : HomeScreenViewModel =  viewModel()
             WeatherApp()
         }
     }
@@ -39,7 +40,9 @@ fun WeatherApp() {
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
                 WeatherNavigation()
+
             }
         }
     }
