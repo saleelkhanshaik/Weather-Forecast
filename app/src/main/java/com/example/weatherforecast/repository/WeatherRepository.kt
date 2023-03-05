@@ -11,6 +11,7 @@ class WeatherRepository @Inject constructor(private val weatherNetwork: WeatherN
             val response = try{
                 weatherNetwork.getWeatherDetailsForEnteredCity(cityName)
             }catch (e:Exception){
+                Log.i("WeatherRepository", "getWeatherDetails: $e")
                 return DataOrException(exception = e)
             }
         Log.i("WeatherRepository", "getWeatherDetails: $response")

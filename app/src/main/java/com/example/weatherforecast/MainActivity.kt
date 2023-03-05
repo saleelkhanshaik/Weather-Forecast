@@ -1,6 +1,7 @@
 package com.example.weatherforecast
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -36,14 +37,14 @@ fun WeatherApp() {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
-            Column(
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-
+//            Column(
+//                verticalArrangement = Arrangement.Center,
+//                horizontalAlignment = Alignment.CenterHorizontally
+//            ) {
+                Log.i("WeatherSplashScreen saleel 02", "WeatherNavigation: ")
                 WeatherNavigation()
 
-            }
+//            }
         }
     }
 }
