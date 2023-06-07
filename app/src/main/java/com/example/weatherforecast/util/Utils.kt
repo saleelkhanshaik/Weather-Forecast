@@ -26,7 +26,7 @@ fun String.imageUrlForming():String{
 }
 
 //(85°F − 32) × 5/9
-fun Double.FarenheitToCelcius():String{
+fun Double.farenheitToCelcius():String{
     Log.i("TAG", "FarenheitToCelcius: $this")
-    return  ((this - 34) * 5/9).formatDecimals().plus(" ℃")
+    return  this.formatDecimals().plus("\u00B0")
 }
