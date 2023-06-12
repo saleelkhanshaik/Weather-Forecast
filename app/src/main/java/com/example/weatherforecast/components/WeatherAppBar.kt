@@ -1,5 +1,6 @@
 package com.example.weatherforecast.components
 
+import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -38,7 +39,7 @@ fun WeatherAppBar(
     elevation: Dp = 0.dp,
     navController: NavController,
     onAddActionClicked: () -> Unit = {},
-    onButtonClicked: () -> Unit = {}
+    onButtonClicked: () -> Unit = {},
 ) {
     CenterAlignedTopAppBar(
         title = {
@@ -49,16 +50,16 @@ fun WeatherAppBar(
         },
         modifier = Modifier
             .padding(8.dp)
-            .shadow(elevation = 4.dp),
+            .shadow(elevation = elevation),
         navigationIcon = {
+            Log.i("saleel", "WeatherAppBar: $navigationIcon")
             if (navigationIcon != null) {
                 IconButton(onClick = {
                     onButtonClicked.invoke()
                 }) {
                     Icon(
                         imageVector = navigationIcon,
-                        contentDescription = "backArrow_icon",
-                        tint = MaterialTheme.colorScheme.onSecondary
+                        contentDescription = "backArrow_icon"
                     )
                 }
             }
@@ -66,10 +67,14 @@ fun WeatherAppBar(
         },
         actions = {
             if (isMainScree) {
-                IconButton(onClick = {  }) {
+                IconButton(onClick = {
+                    onAddActionClicked.invoke()
+                }) {
                     Icon(imageVector = Icons.Default.Search, contentDescription = "search_icon")
                 }
-                IconButton(onClick = {  }) {
+                IconButton(onClick = {
+                    onAddActionClicked.invoke()
+                }) {
                     Icon(imageVector = Icons.Default.MoreVert, contentDescription = "menu_icon")
                 }
             } else Box {

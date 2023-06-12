@@ -40,6 +40,7 @@ import kotlinx.coroutines.delay
 @Composable
 fun WeatherSplashScreen(navController: NavController) {
     Log.i("WeatherSplashScreen saleel", "WeatherSplashScreen: ")
+    val defaultCityName = "Chennai"
     val scale = remember {
         Animatable(0f)
     }
@@ -55,7 +56,7 @@ fun WeatherSplashScreen(navController: NavController) {
         )
         delay(1500L)
 //        navController.popBackStack()
-        navController.navigate(WeatherScreens.HomeScreen.name)
+        navController.navigate(WeatherScreens.HomeScreen.name+"/$defaultCityName")
         {
             popUpTo(WeatherScreens.SplashScreen.name){
                 inclusive = true
